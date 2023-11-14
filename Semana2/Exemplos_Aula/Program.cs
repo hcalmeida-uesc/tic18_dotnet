@@ -1,13 +1,23 @@
-﻿
-#region ReadLine example
+﻿ 
+/* #region ReadLine example
 
 Console.WriteLine("Please enter your name:");
-string name = Console.ReadLine();
+string? name = " \n\t";
+
+Console.WriteLine(string.IsNullOrWhiteSpace(name));
+
+Console.WriteLine($"Hello, {name.ToUpper()}!");
 Console.WriteLine($"Hello, {name}!");
+Console.WriteLine($"Tamanho, {name.Length}!");
+string[] nameSplited = name.Split(" ");
+foreach(string namePart in nameSplited)
+{
+    Console.WriteLine(namePart);
+}
 
 #endregion
-
-#region foreach example
+ */
+/* #region foreach example
 string[] people = { "Alice", "Bob", "Charlie", "Dave" };
 
 foreach (string person in people)
@@ -15,39 +25,82 @@ foreach (string person in people)
    Console.WriteLine(person);
 }
 #endregion
+ */
+/* #region List Example
 
-#region string examples
-// Creating a string
-string myString = "Hello, world!";
+// List of integers
+List<int> numbers = new List<int>();
+numbers.Add(1);
+numbers.Add(2);
+numbers.Add(3);
+numbers.Add(4);
+numbers.Add(5);
 
-// String length
-int length = myString.Length;
-Console.WriteLine($"Length: {length}");
+Console.WriteLine("List of integers:");
+foreach (int number in numbers)
+{
+   Console.WriteLine(number);
+}
+Console.WriteLine($"Tamanho, {numbers.Count}!");
+Console.WriteLine($"Contém 3?, {numbers.Contains(3)}!");
 
-// String concatenation
-string name = "John";
-string greeting = "Hello, " + name + "!";
-Console.WriteLine(greeting);
 
-// String interpolation
-int age = 30;
-string message = $"My name is {name} and I'm {age} years old.";
-Console.WriteLine(message);
 
-// String methods
-string myString2 = "   Hello, world!   ";
-Console.WriteLine(myString2.Trim()); // Removes leading and trailing whitespace
-Console.WriteLine(myString2.ToUpper()); // Converts to uppercase
-Console.WriteLine(myString2.ToLower()); // Converts to lowercase
-Console.WriteLine(myString2.Substring(7, 5)); // Extracts a substring
-Console.WriteLine(myString2.Replace("world", "everyone")); // Replaces a substring
+// List of strings
+List<string> names = new List<string>();
+names.Add("Alice");
+names.Add("Bob");
+names.Add("Charlie");
+names.Add("Dave");
+names.Add("Eve");
 
-// String conversions
-int num = 42;
-string numString = num.ToString();
-Console.WriteLine(numString);
+Console.WriteLine("List of strings:");
+foreach (string name in names)
+{
+   Console.WriteLine(name);
+}
 
-string numString2 = "123";
-int num2 = int.Parse(numString2);
-Console.WriteLine(num2);
+List<List<string>> names2 = new List<List<string>>();
+names2.Add(new List<string>(){ "Alberto", "Allana", "Álvaro"});
+names2.Add(new List<string>(){ "Biancardy", "Bruno"});
+names2.Add(new List<string>(){ "Carlos"});
+foreach(List<string> names3 in names2)
+{
+   foreach(string name in names3)
+   {
+      Console.WriteLine(name);
+   }
+}
 #endregion
+ */
+/* #region DateTime Example
+
+DateTime now = DateTime.Now;
+Console.WriteLine($"Current date and time: {now}");
+
+ DateTime today = DateTime.Today;
+ Console.WriteLine($"Today's date: {today}");
+
+ DateTime tomorrow = now.AddDays(1);
+ Console.WriteLine($"Tomorrow's date: {tomorrow}");
+
+ DateTime yesterday = today.AddDays(-1);
+ Console.WriteLine($"Yesterday's date: {yesterday}");
+
+ DateTime specificDate = new DateTime(1987,09,24);
+ Console.WriteLine($"Specific date: {specificDate}");
+ Console.WriteLine($"Week Day: {specificDate.DayOfWeek}");
+
+DateTime parsedDate = DateTime.Parse("2022-12-31");
+Console.WriteLine($"Parsed date: {parsedDate}");
+
+TimeSpan timeDifference = specificDate - now;
+Console.WriteLine($"Time difference: {timeDifference.ToString()}");
+
+ DateTime utcNow = DateTime.UtcNow;
+ Console.WriteLine($"UTC date and time: {utcNow}");
+
+ DateTime easternTime = TimeZoneInfo.ConvertTimeFromUtc(utcNow, TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time"));
+ Console.WriteLine($"Eastern Time: {easternTime}");
+#endregion
+ */
