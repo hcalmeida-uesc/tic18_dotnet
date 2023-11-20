@@ -55,7 +55,7 @@ Console.WriteLine($"People with name started with '{letter}': {string.Join(", ",
 
 #endregion */
 
-#region Linq Examples
+/* #region Linq Examples
 
 List<int> list = new() { 1, 2, 3, 4, 5 };
 var squaredList = list.Select(x => x * x);
@@ -92,6 +92,20 @@ var selectMany = students.SelectMany(x => x.PhoneNumbers);
 var legalAge = students.Where(x => x.BirthDate <= DateTime.Today.AddYears(-18));
 
 Console.Read();
+#endregion */
+
+/* #region Question 1
+
+Console.WriteLine($"{GetPerson("Helder", new DateTime(1987, 9, 24))}");
+
+
+(string,int) GetPerson(string name, DateTime BirthDate){
+   var yearsOld = DateTime.Today.Year - BirthDate.Year;
+   if (BirthDate.Date.DayOfYear >= DateTime.Now.DayOfYear) yearsOld--;
+   return (name, yearsOld);
+}
+
+#endregion */
 
 public class Student{
    public Student(int id, string fullName, string document, DateTime birthDate, List<string> phoneNumbers)
@@ -110,4 +124,4 @@ public class Student{
    public List<string> PhoneNumbers { get; set; }
 }
 
-#endregion
+
