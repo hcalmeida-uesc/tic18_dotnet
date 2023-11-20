@@ -37,8 +37,8 @@ Action<string> greet = name =>
    string greeting = $"Hello {name}!";
    Console.WriteLine(greeting);
 };
-var person = Console.ReadLine();
-greet(person ?? "Someone");
+string person = Console.ReadLine() ?? "";
+greet(person);
 // Hello `person or Someone`
 // ?? and ??= are null-coalescing operators, 
 //    which return the left-hand operand if the operand is not null; 
