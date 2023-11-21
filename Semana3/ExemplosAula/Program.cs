@@ -117,7 +117,7 @@ Console.WriteLine($"2*2+3*3 = {sumSquares(2,3)}");
 
 #endregion */
 
-#region Exceptions Examples
+/* #region Exceptions Examples
 
 try{
    // Code that may throw an exception
@@ -148,8 +148,9 @@ int Divide(int a, int b){
    return a / b;
 }
 
-#endregion
-public class Student{
+#endregion */
+ 
+ public class Student{
    public Student(int id, string fullName, string document, DateTime birthDate, List<string> phoneNumbers)
    {
       Id = id;
