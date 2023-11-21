@@ -89,7 +89,9 @@ var singleOrDefault = students.SingleOrDefault(x => x.Id == 10);
 var select = students.Select(x => x.PhoneNumbers);
 var selectMany = students.SelectMany(x => x.PhoneNumbers);
 
-var legalAge = students.Where(x => x.BirthDate <= DateTime.Today.AddYears(-18));
+var legalAge = students.Where(x => x.BirthDate <= DateTime.Today.AddYears(-18)).Select(x => x.FullName);
+Console.WriteLine($"Legal age people: {string.Join(", ", legalAge)}");
+
 
 Console.Read();
 #endregion */
@@ -107,6 +109,46 @@ Console.WriteLine($"{GetPerson("Helder", new DateTime(1987, 9, 24))}");
 
 #endregion */
 
+/* #region Question 2
+
+Func<int,int,int> sumSquares = (x,y) => (x * x)+(y * y);
+
+Console.WriteLine($"2*2+3*3 = {sumSquares(2,3)}");
+
+#endregion */
+
+#region Exceptions Examples
+
+try{
+   // Code that may throw an exception
+   int result = Divide(10, 11);
+   Console.WriteLine($"Result: {result}");
+}
+catch (DivideByZeroException ex){
+   // Handle the specific exception
+   Console.WriteLine("Error: Cannot divide by zero");
+   Console.WriteLine(ex.Message);
+}
+catch (Exception ex){
+   // Handle any other exceptions
+   Console.WriteLine("An error occurred");
+   Console.WriteLine(ex.Message);
+}
+finally{
+   // Code that will always execute, regardless of whether an exception occurred or not
+   Console.WriteLine("Finally block executed");
+}
+
+int Divide(int a, int b){
+   if (b == 0)
+   {
+      // Throw a custom exception
+      throw new DivideByZeroException("Cannot divide by zero");
+   }
+   return a / b;
+}
+
+#endregion
 public class Student{
    public Student(int id, string fullName, string document, DateTime birthDate, List<string> phoneNumbers)
    {
@@ -123,5 +165,3 @@ public class Student{
    public DateTime BirthDate { get; set; }
    public List<string> PhoneNumbers { get; set; }
 }
-
-
