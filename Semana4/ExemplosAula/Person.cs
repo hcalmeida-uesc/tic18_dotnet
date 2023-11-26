@@ -1,8 +1,8 @@
 namespace Semana4.ExemplosAula
 {
-    public class Pessoa
+    public class Person
     {
-        public Pessoa(string name, string document, DateTime birthDate)
+        public Person(string name, string document, DateTime birthDate)
         {
             Id = ++PeopleID;
             Name = name;
@@ -12,7 +12,15 @@ namespace Semana4.ExemplosAula
         private static int PeopleID { get; set; } = 2023000;
         public int Id { get; }
         public string Name { get; private set; }
-        public string Document { get; private set; }
+        private string document = string.Empty;
+        public string Document { 
+            get{
+                return document;
+            }
+            private set{
+                document = value ?? string.Empty;
+            }
+        }
         public DateTime BirthDate { get; private set; }
-    }
+    }    
 }

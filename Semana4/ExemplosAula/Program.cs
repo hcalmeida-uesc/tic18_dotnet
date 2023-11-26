@@ -3,13 +3,13 @@ using System.Globalization;
 
 CultureInfo.CurrentCulture = CultureInfo.CreateSpecificCulture("pt-BR");
 
-List<Pessoa> people = App.AddPeople();
+List<Person> people = App.AddPeople();
 
-Pessoa Valber = new Pessoa("Valber", "123456789-00", new DateTime(1990, 10, 10));
+Person Valber = new Person("Valber", "123456789-00", new DateTime(1990, 10, 10));
 
 people.Add(Valber);
 
-foreach (Pessoa person in people)
+foreach (Person person in people)
 {
    Console.WriteLine($"ID: {person.Id}");
    Console.WriteLine($"Nome: {person.Name}");
