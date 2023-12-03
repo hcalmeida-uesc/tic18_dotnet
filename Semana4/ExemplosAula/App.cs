@@ -1,9 +1,9 @@
 namespace Semana4.ExemplosAula;
 public static class App{
    
-   public static List<Pessoa> AddPeople()
+   public static List<Person> AddPeople()
    {
-      List<Pessoa> people = new List<Pessoa>();
+      List<Person> people = new List<Person>();
 
       string answer="s";
 
@@ -19,7 +19,7 @@ public static class App{
             Console.WriteLine("Informe a data de nascimento (dd/mm/yyyy):");
             DateTime birthDate = DateTime.Parse(Console.ReadLine()!);
          
-            Pessoa person = new Pessoa(name, document, birthDate);
+            Person person = new Person(name, document, birthDate);
             people.Add(person);
          
          }catch(FormatException){

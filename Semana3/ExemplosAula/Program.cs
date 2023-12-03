@@ -6,13 +6,6 @@ CultureInfo.CurrentCulture = CultureInfo.CreateSpecificCulture("pt-BR");
 #endregion
 
 /* #region Tuples Examples
-var tuple1 = (10, 20);
-Console.WriteLine($"Tuple 1: {tuple1.Item1}, {tuple1.Item2}");
-//Tuple 1: 10, 20
-
-var tuple2 = (x: 5, y: 50);
-Console.WriteLine($"Tuple 2: {tuple2.x}, {tuple2.y}");
-//Tuple 2: 5, 50
 
 var tuple3 = (id: 10, name: "Helder", born: new DateTime(1987, 9, 24));
 Console.WriteLine($"Tuple 3: {tuple3.id}, {tuple3.name}, {tuple3.born}");
@@ -51,11 +44,11 @@ Console.WriteLine($"The text {person} has more than {size} chars? {isBiggerThan(
 
 string[] people = { "Helder", "Nicole", "Gilvana" };
 char letter = 'N';
-Console.WriteLine($"People with name started with '{letter}': {string.Join(", ", people.Where(x => x.StartsWith(letter)))}");
+Console.WriteLine($"People with name started with '{letter}': {string.Join(", ", people.Where(x => (x.StartsWith(letter))))}");
 
 #endregion */
 
-/* #region Linq Examples
+ /* #region Linq Examples
 
 List<int> list = new() { 1, 2, 3, 4, 5 };
 var squaredList = list.Select(x => x * x);
@@ -82,7 +75,7 @@ var students = new List<Student>{
 
 var any = students.Any();
 var anyHelder = students.Any(x => x.FullName.Contains("Helder"));
-//var single = students.Single(x => x.Id == 10);
+var single = students.Single(x => x.Id == 10);
 //throw exception
 var singleOrDefault = students.SingleOrDefault(x => x.Id == 10);
 
@@ -94,12 +87,13 @@ Console.WriteLine($"Legal age people: {string.Join(", ", legalAge)}");
 
 
 Console.Read();
-#endregion */
-
-/* #region Question 1
+#endregion  */
+#region Question 1
 
 Console.WriteLine($"{GetPerson("Helder", new DateTime(1987, 9, 24))}");
-
+string name = Console.ReadLine()!;
+DateTime birthDate = DateTime.Parse(Console.ReadLine()!);
+Console.WriteLine($"{GetPerson(name, birthDate)}");
 
 (string,int) GetPerson(string name, DateTime BirthDate){
    var yearsOld = DateTime.Today.Year - BirthDate.Year;
@@ -107,7 +101,7 @@ Console.WriteLine($"{GetPerson("Helder", new DateTime(1987, 9, 24))}");
    return (name, yearsOld);
 }
 
-#endregion */
+#endregion
 
 /* #region Question 2
 
@@ -117,11 +111,11 @@ Console.WriteLine($"2*2+3*3 = {sumSquares(2,3)}");
 
 #endregion */
 
-/* #region Exceptions Examples
+#region Exceptions Examples
 
 try{
    // Code that may throw an exception
-   int result = Divide(10, 11);
+   int result = Divide(10, 0);
    Console.WriteLine($"Result: {result}");
 }
 catch (DivideByZeroException ex){
@@ -143,12 +137,12 @@ int Divide(int a, int b){
    if (b == 0)
    {
       // Throw a custom exception
-      throw new DivideByZeroException("Cannot divide by zero");
+      throw new DivideByZeroException("Não pode dividir por zero");
    }
    return a / b;
 }
 
-#endregion */
+#endregion
  
  public class Student{
    public Student(int id, string fullName, string document, DateTime birthDate, List<string> phoneNumbers)
