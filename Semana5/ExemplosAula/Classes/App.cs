@@ -4,19 +4,19 @@ public static class App{
       InitTest();
    }
    private static void InitTest(){
-      ContaCorrente contaCorrente = new ContaCorrente(){
+      var contaCorrente = new ContaCorrente(){
             Numero = "123",
             Descricao = "Conta Corrente",
             Saldo = 1000,
             Limite = 1000
       };
-      ContaPoupanca contaPoupanca = new ContaPoupanca(){
+      var contaPoupanca = new ContaPoupanca(){
             Numero = "456",
             Descricao = "Conta Poupança",
             Saldo = 1000,
             RentabilidadeMes = 0.05
       };
-      ContaInvestimento contaInvestimento = new ContaInvestimento(){
+      var contaInvestimento = new ContaInvestimento(){
             Numero = "789",
             Descricao = "Conta Investimento",
             Saldo = 1000
@@ -29,6 +29,12 @@ public static class App{
       };
 
       contas.ForEach(x => Console.WriteLine(x));
+
+      List<ITributavel> tributaveis = new List<ITributavel>(){
+            contaPoupanca,
+            contaInvestimento
+      };
+      tributaveis.ForEach(x => Console.WriteLine(x.Tributo));
    }
 
 }

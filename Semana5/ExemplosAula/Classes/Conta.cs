@@ -1,7 +1,7 @@
 using System.Text;
 
 namespace ExemplosAula.Banco;
-public abstract class Conta{
+public abstract class Conta : IPrintable{
       private static int _numeroContas = 0;
       private string _numero = string.Empty;
       required public string Numero { 
@@ -52,21 +52,37 @@ public abstract class Conta{
             Saldo -= valor;
             return Saldo;
       }
-
+      public override bool Equals(object? obj)
+      {
+            if (obj is null || obj is not Conta)
+            {
+                  return false;
+            }
+            return Numero == ((Conta)obj).Numero;
+      }
     public override string ToString()
-    {
-        StringBuilder sb = new StringBuilder();
-        sb.AppendLine($"Número: {Numero}");
-            sb.AppendLine($"Descrição: {Descricao}");
-            sb.AppendLine($"Saldo: {Saldo}");
-        return sb.ToString();
-    }
+      {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"Número: {Numero}");
+                  sb.AppendLine($"Descrição: {Descricao}");
+                  sb.AppendLine($"Saldo: {Saldo}");
+            return sb.ToString();
+      }
 
     protected virtual bool NumeroContaValido(string numero){
             return numero.Length >= 3 &&
                    numero.Length <= 6 &&
                    numero.All(char.IsDigit);
       }
+
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
+    }
+
+    public void Print(){
+        Console.WriteLine($"{ToString()}");
+    }
 }
 
 public class ContaCorrente : Conta{
@@ -107,6 +123,7 @@ public class ContaCorrente : Conta{
 
 public class ContaPoupanca : Conta, ITributavel{
       private double _rentabilidadeMes;
+      public double Tributo { get; set; } = 0.05;
       required public double RentabilidadeMes {
             get{ return _rentabilidadeMes;}
             set{
@@ -118,19 +135,30 @@ public class ContaPoupanca : Conta, ITributavel{
       }
       public ContaPoupanca() : base(){ }
 
-    public double CalcularTributo()
-    {
-        return Saldo * 0.05;
+    public double CalcularTributo(){
+        return Saldo * Tributo;
     }
 }
 
 public class ContaInvestimento : Conta, ITributavel, IInternacional{
+    
     public double SaldoDolar => Saldo * 5.5;
 
+    public double Tributo { get; set; } = 0.02;
     List<IInvestimento> Investimentos { get; set; } = new List<IInvestimento>();
 
-    public double CalcularTributo()
-    {
+    public double CalcularTributo(){
         return Saldo * 0.03;
     }
 }
+
+public class Gato : IAnimal{
+    public void EmitirSom(){
+        Console.WriteLine("Miau!");
+    }
+
+    public void Mover(){
+        Console.WriteLine("O gato se move graciosamente.");
+    }
+}
+
