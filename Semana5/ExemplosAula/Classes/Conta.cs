@@ -148,7 +148,7 @@ public class ContaInvestimento : Conta, ITributavel, IInternacional{
     List<IInvestimento> Investimentos { get; set; } = new List<IInvestimento>();
 
     public double CalcularTributo(){
-        return Saldo * 0.03;
+        return Saldo * Tributo;
     }
 }
 
