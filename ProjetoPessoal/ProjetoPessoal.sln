@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoPessoalMinimalAPI", "ProjetoPessoalMinimalAPI\ProjetoPessoalMinimalAPI.csproj", "{A71D8359-172D-40EF-9EB3-B977FC05289F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoPessoalAPI", "ProjetoPessoalAPI\ProjetoPessoalAPI.csproj", "{D9B5F83D-6A9C-4B58-856C-78CCD9CAF097}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{A71D8359-172D-40EF-9EB3-B977FC05289F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A71D8359-172D-40EF-9EB3-B977FC05289F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A71D8359-172D-40EF-9EB3-B977FC05289F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9B5F83D-6A9C-4B58-856C-78CCD9CAF097}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9B5F83D-6A9C-4B58-856C-78CCD9CAF097}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9B5F83D-6A9C-4B58-856C-78CCD9CAF097}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9B5F83D-6A9C-4B58-856C-78CCD9CAF097}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
