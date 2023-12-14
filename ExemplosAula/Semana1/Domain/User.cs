@@ -1,7 +1,7 @@
-using System.Text;
+﻿using System.Text;
 
-namespace Semana1.MinimalAPI;
-public static class Helder{
+namespace Semana1.Domain;
+public static class User{
       public static string Name => "Hélder Almeida";
       public static List<(string, int)> Skills => new List<(string, int)>{
             ("Fundamentos de C#", 5),
