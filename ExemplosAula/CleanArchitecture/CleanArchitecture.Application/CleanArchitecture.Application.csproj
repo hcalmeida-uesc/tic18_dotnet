@@ -4,6 +4,22 @@
     <ProjectReference Include="..\CleanArchitecture.Domain\CleanArchitecture.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services/" />
+    <Folder Include="Shared/" />
+    <Folder Include="Shared/Behavior/" />
+    <Folder Include="Shared/Exceptions/" />
+    <Folder Include="UseCases/DeleteUser/" />
+    <Folder Include="UseCases/GetAllUser/" />
+    <Folder Include="UseCases/UpdateUser/" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.8.1" />
+    <PackageReference Include="MediatR" Version="12.1.1" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
