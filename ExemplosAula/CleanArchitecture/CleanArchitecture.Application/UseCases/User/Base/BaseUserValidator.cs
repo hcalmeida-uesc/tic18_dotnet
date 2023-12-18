@@ -1,9 +1,9 @@
 using FluentValidation;
 
-namespace CleanArchitecture.Application.UseCases.CreateUser;
-public sealed class CreateUserValidator : AbstractValidator<CreateUserRequest>
+namespace CleanArchitecture.Application.UseCases;
+public sealed class BaseUserValidator : AbstractValidator<BaseUserRequest>
 {
-   public CreateUserValidator()
+   public BaseUserValidator()
    {
       RuleFor(x => x.Email).NotEmpty().MaximumLength(50).EmailAddress();
       RuleFor(x => x.Name).NotEmpty().MinimumLength(3).MaximumLength(50);

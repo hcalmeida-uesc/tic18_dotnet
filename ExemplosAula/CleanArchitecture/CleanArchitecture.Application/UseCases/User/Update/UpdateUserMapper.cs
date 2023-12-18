@@ -1,13 +1,13 @@
 using AutoMapper;
 using CleanArchitecture.Domain.Entities;
 
-namespace CleanArchitecture.Application.UseCases.UpdateUser;
+namespace CleanArchitecture.Application.UseCases;
 public sealed class UpdateUserMapper : Profile
 {
    public UpdateUserMapper()
    {
       CreateMap<UpdateUserRequest, User>();
-      CreateMap<User, UpdateUserResponse>();
+      CreateMap<User, BaseUserResponse>();
    }
 
 }

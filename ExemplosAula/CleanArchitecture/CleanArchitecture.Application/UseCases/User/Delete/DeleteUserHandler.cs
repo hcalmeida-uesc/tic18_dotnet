@@ -3,8 +3,8 @@ using MediatR;
 using CleanArchitecture.Domain.Interfaces;
 using CleanArchitecture.Domain.Entities;
 
-namespace CleanArchitecture.Application.UseCases.DeleteUser;
-public sealed class DeleteUserHandler : IRequestHandler<DeleteUserRequest, DeleteUserResponse>
+namespace CleanArchitecture.Application.UseCases;
+public sealed class DeleteUserHandler : IRequestHandler<DeleteUserRequest, BaseUserResponse>
 {
    private readonly IUnitOfWork _unitOfWork;
    private readonly IUserRepository _userRepository;
@@ -15,7 +15,7 @@ public sealed class DeleteUserHandler : IRequestHandler<DeleteUserRequest, Delet
       _userRepository = userRepository;
       _mapper = mapper;
    }
-   public async Task<DeleteUserResponse> Handle(DeleteUserRequest request, CancellationToken cancellationToken)
+   public async Task<BaseUserResponse> Handle(DeleteUserRequest request, CancellationToken cancellationToken)
    {
       var user = await _userRepository.Get(request.ID, cancellationToken);
       if(user is null){
@@ -23,6 +23,6 @@ public sealed class DeleteUserHandler : IRequestHandler<DeleteUserRequest, Delet
       }
       _userRepository.Delete(user);
       await _unitOfWork.Commit(cancellationToken);
-      return _mapper.Map<DeleteUserResponse>(user);
+      return _mapper.Map<BaseUserResponse>(user);
    }
 }

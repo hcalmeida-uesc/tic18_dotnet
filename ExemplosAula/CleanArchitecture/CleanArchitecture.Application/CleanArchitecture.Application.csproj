@@ -9,6 +9,11 @@
     <Folder Include="UseCases/DeleteUser/" />
     <Folder Include="UseCases/GetAllUser/" />
     <Folder Include="UseCases/UpdateUser/" />
+    <Folder Include="UseCases/User/Base/" />
+    <Folder Include="UseCases/User/Create/" />
+    <Folder Include="UseCases/User/Delete/" />
+    <Folder Include="UseCases/User/GetAll/" />
+    <Folder Include="UseCases/User/Update/" />
   </ItemGroup>
 
   <ItemGroup>

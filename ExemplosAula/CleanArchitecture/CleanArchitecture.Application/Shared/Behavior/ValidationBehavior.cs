@@ -27,7 +27,7 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
 
          if(failures.Count != 0)
          {
-            throw new FluentValidation.ValidationException(failures);
+            throw new FluentValidation.ValidationException(String.Join("\n",failures.Select(f => f.ErrorMessage).ToList()));
          }
       }
       return await next();

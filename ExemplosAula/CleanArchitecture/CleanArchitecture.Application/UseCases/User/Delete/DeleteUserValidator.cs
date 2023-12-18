@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace CleanArchitecture.Application.UseCases.DeleteUser;
+namespace CleanArchitecture.Application.UseCases;
 public sealed class DeleteUserValidator : AbstractValidator<DeleteUserRequest>
 {
    public DeleteUserValidator()
