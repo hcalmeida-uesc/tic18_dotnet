@@ -7,21 +7,30 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Semana1", "Semana1", "{F008
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalAPI", "Semana1\MinimalAPI\MinimalAPI.csproj", "{1C93234F-95BE-43CF-9F0F-F4619706B23C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Semana2", "Semana2", "{AC803B3B-D7EF-4E5B-BC7E-B9CC0A9BA9A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechMed_EFCore", "Semana2\TechMed_EFCore\TechMed_EFCore.csproj", "{5ED13EB6-D8B2-438A-B66E-F79965CE4236}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{1C93234F-95BE-43CF-9F0F-F4619706B23C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1C93234F-95BE-43CF-9F0F-F4619706B23C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C93234F-95BE-43CF-9F0F-F4619706B23C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C93234F-95BE-43CF-9F0F-F4619706B23C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ED13EB6-D8B2-438A-B66E-F79965CE4236}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ED13EB6-D8B2-438A-B66E-F79965CE4236}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ED13EB6-D8B2-438A-B66E-F79965CE4236}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ED13EB6-D8B2-438A-B66E-F79965CE4236}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1C93234F-95BE-43CF-9F0F-F4619706B23C} = {F008BC1E-D57D-42E0-BA7C-D0DFED714DF3}
+		{5ED13EB6-D8B2-438A-B66E-F79965CE4236} = {AC803B3B-D7EF-4E5B-BC7E-B9CC0A9BA9A6}
 	EndGlobalSection
 EndGlobal
