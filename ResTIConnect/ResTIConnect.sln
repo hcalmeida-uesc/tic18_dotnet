@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResTIConnect.Domain", "ResTIConnect.Domain\ResTIConnect.Domain.csproj", "{C704187B-1F9D-4F62-8DA6-11B123AB1696}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResTIConnect.Infra.Data", "ResTIConnect.Infra.Data\ResTIConnect.Infra.Data.csproj", "{BDBB4491-D330-4CBE-9AD4-666BC53D20A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{C704187B-1F9D-4F62-8DA6-11B123AB1696}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C704187B-1F9D-4F62-8DA6-11B123AB1696}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C704187B-1F9D-4F62-8DA6-11B123AB1696}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDBB4491-D330-4CBE-9AD4-666BC53D20A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDBB4491-D330-4CBE-9AD4-666BC53D20A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDBB4491-D330-4CBE-9AD4-666BC53D20A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDBB4491-D330-4CBE-9AD4-666BC53D20A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
