@@ -423,6 +423,7 @@ obj/
 .nfs*
 
 ### VisualStudioCode ###
+.vscode/*
 !.vscode/*.code-snippets
 
 # Local History for Visual Studio Code
