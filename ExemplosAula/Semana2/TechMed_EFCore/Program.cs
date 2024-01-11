@@ -2,18 +2,12 @@
 
 var context = new TechMedContext();
 
-Console.WriteLine($"Lendo todos os médicos no banco de dados");
-foreach (var med in context.Medicos.OrderBy(m => m.Nome))
-{
-    Console.WriteLine($"Id: {med.Id} - Nome: {med.Nome} - CRM: {med.CRM}");
-}
+context.Exames.RemoveRange(context.Exames);
+context.Atendimentos.RemoveRange(context.Atendimentos);
+context.Medicos.RemoveRange(context.Medicos);
+context.Pacientes.RemoveRange(context.Pacientes);
 
-Console.WriteLine($"Lendo todos os pacientes no banco de dados");
-foreach (var pac in context.Pacientes.OrderBy(m => m.Nome))
-{
-    Console.WriteLine($"Id: {pac.Id} - Nome: {pac.Nome} - CRM: {pac.CPF}");
-}
-
+context.SaveChanges();
 
 Console.WriteLine($"Criar um médico no banco de dados");
 
@@ -39,17 +33,51 @@ context.Pacientes.Add(paciente);
 context.SaveChanges();
 
 
-Console.WriteLine($"Atualizando o nome de um paciente no banco de dados");
-var doente = context.Pacientes.Where(p => p.CPF == "101.202.303-00").FirstOrDefault();
-doente.Nome = "João";
-context.Pacientes.Update(doente);
+Console.WriteLine($"Criar um atendimento no banco de dados");
 
-context.SaveChanges();
+var atendimento1 = new Atendimento{
+    Medico = medico,
+    Paciente = paciente,
+    DataHora = DateTime.Now
+};
+var atendimento2 = new Atendimento{
+    Medico = medico,
+    Paciente = paciente,
+    DataHora = DateTime.Now+TimeSpan.FromDays(-1)
+};
+var atendimento3 = new Atendimento{
+    Medico = medico,
+    Paciente = paciente,
+    DataHora = DateTime.Now+TimeSpan.FromDays(-2)
+};
 
-Console.WriteLine($"Removendo o primeiro médico no banco de dados");
-var primeiroMedico = context.Medicos.FirstOrDefault();
-context.Medicos.Remove(primeiroMedico);
+context.Atendimentos.AddRange(atendimento1, atendimento2, atendimento3);
+
+var exame1 = new Exame{
+    Local = "Hospital",
+    DataHora = DateTime.Now,
+    Atendimentos = new List<Atendimento>{atendimento1, atendimento2}
+};
+var exame2 = new Exame{
+    Local = "Clínica",
+    DataHora = DateTime.Now+TimeSpan.FromDays(-1),
+    Atendimentos = new List<Atendimento>{atendimento1, atendimento3}
+};
+var exame3 = new Exame{
+    Local = "Consultório",
+    DataHora = DateTime.Now+TimeSpan.FromDays(-2),
+    Atendimentos = new List<Atendimento>{atendimento2, atendimento3}
+};
+
+context.Exames.AddRange(exame1, exame2, exame3);
 
 context.SaveChanges();
 
 Console.WriteLine($"Finalizando o programa");
+
+var valber = context.Pacientes.Where(p => p.Nome == "Valber").FirstOrDefault();
+
+valber.Atendimentos.ToList().ForEach(a => a.Exames.ToList().ForEach(e => Console.WriteLine($"Exame: {e.Local} - {e.DataHora}")));
+
+var atendimentoHospital = context.Atendimentos.Where(a => a.Exames.Any(e => e.Local == "Hospital")).FirstOrDefault();
+

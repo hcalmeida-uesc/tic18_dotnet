@@ -37,7 +37,7 @@ public class TechMedContext : DbContext
 
         modelBuilder.Entity<Atendimento>()
             .HasMany(a => a.Exames)
-            .WithOne(x => x.Atendimento);
+            .WithMany(e => e.Atendimentos);
     }
     // codigo omitido
 }
@@ -68,12 +68,13 @@ public class Atendimento{
     public required Medico Medico {get; set;}
     public int PacienteId {get; set;}
     public required Paciente Paciente {get; set;}
-    public ICollection<Exame>? Exames {get;}
+    public ICollection<Exame>? Exames {get;set;}
 }
 
 public class Exame{
     public int Id {get; set;}
     public string Local {get; set;}
     public DateTime DataHora {get; set;}
-    public required Atendimento Atendimento {get; set;}
+    public ICollection<Atendimento>? Atendimentos {get; set;}
 }
+
