@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TechMed_EFCore.Models;
 
@@ -10,9 +11,11 @@ using TechMed_EFCore.Models;
 namespace TechMed_EFCore.Migrations
 {
     [DbContext(typeof(TechMedContext))]
-    partial class TechMedContextModelSnapshot : ModelSnapshot
+    [Migration("20240111183806_AddAtendimentoExame")]
+    partial class AddAtendimentoExame
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

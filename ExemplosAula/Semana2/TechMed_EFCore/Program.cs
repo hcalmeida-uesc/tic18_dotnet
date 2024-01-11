@@ -53,4 +53,3 @@ context.Medicos.Remove(primeiroMedico);
 context.SaveChanges();
 
 Console.WriteLine($"Finalizando o programa");
-
