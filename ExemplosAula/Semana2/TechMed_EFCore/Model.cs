@@ -21,8 +21,18 @@ public class TechMedContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-        modelBuilder.Entity<Medico>().ToTable("Medicos").HasKey(m => m.MedicoId);
-        modelBuilder.Entity<Paciente>().ToTable("Pacientes").HasKey(p => p.PacienteId);
+        modelBuilder.Entity<Medico>().ToTable("Medicos")
+            .HasKey(m => m.MedicoId);
+        modelBuilder.Entity<Paciente>().ToTable("Pacientes")
+            .HasKey(p => p.PacienteId);
+        modelBuilder.Entity<Atendimento>().ToTable("Atendimentos")
+            .HasKey(a => a.AtendimentoId);
+
+        modelBuilder.Entity<Paciente>()
+            .HasMany(p => p.Atendimentos)
+            .WithOne(a => a.Paciente)
+            .HasForeignKey(a => a.PacienteId);
+
     }
     // codigo omitido
 }
@@ -43,7 +53,7 @@ public class Paciente : Pessoa{
     public int PacienteId {get; set;}
     public string? Endereco {get; set;}
     public string? Telefone {get; set;}
-    public ICollection<Atendimento>? Atendimentos {get; set;}
+    public ICollection<Atendimento> Atendimentos {get;} = new List<Atendimento>();
 }
 
 public class Atendimento{
@@ -53,6 +63,8 @@ public class Atendimento{
     public string? Diagnostico {get; set;}
     
     public required int MedicoId {get; set;}
+    public required Medico Medico {get; set;}
+    public required int PacienteId {get; set;}
     public required Paciente Paciente {get; set;}
 
     public ICollection<Exame>? Exames {get; set;}
