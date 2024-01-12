@@ -7,7 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="interfaces/" />
+    <Folder Include="Common/" />
+    <Folder Include="Interfaces/" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,5 @@
-﻿using TechMed_EFCore.Models;
+﻿using TechMed.Domain.Entities;
+using TechMed.Infra.Data.Context;
 
 var context = new TechMedContext();
 
