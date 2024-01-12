@@ -4,6 +4,10 @@
     <ProjectReference Include="..\TechMed.Domain\TechMed.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="context/" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
