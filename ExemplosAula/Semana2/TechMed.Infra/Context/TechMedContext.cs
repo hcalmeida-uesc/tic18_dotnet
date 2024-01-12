@@ -23,8 +23,8 @@ public class TechMedContext : DbContext
         base.OnModelCreating(modelBuilder);
         modelBuilder.Entity<Medico>().ToTable("Medicos").HasKey(m => m.MedicoId);
         modelBuilder.Entity<Paciente>().ToTable("Pacientes").HasKey(p => p.PacienteId);
-        modelBuilder.Entity<Atendimento>().ToTable("Atendimentos").HasKey(a => a.Id);
-        modelBuilder.Entity<Exame>().ToTable("Exames").HasKey(a => a.Id);
+        modelBuilder.Entity<Atendimento>().ToTable("Atendimentos").HasKey(a => a.AtendimentoId);
+        modelBuilder.Entity<Exame>().ToTable("Exames").HasKey(a => a.ExameId);
 
         modelBuilder.Entity<Atendimento>()
             .HasOne(a => a.Medico)

@@ -8,6 +8,7 @@ context.Atendimentos.RemoveRange(context.Atendimentos);
 context.Medicos.RemoveRange(context.Medicos);
 context.Pacientes.RemoveRange(context.Pacientes);
 
+
 context.SaveChanges();
 
 Console.WriteLine($"Criar um médico no banco de dados");

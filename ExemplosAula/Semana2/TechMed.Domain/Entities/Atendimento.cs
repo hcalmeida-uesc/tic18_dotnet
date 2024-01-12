@@ -1,6 +1,6 @@
 namespace TechMed.Domain.Entities;
 public class Atendimento{
-    public int Id {get; set;}
+    public int AtendimentoId {get; set;}
     public DateTime DataHora {get; set;}
     public int MedicoId {get; set;}
     public required Medico Medico {get; set;}

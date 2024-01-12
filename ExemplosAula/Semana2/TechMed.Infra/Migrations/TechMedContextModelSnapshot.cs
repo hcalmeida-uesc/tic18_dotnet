@@ -2,20 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TechMed_EFCore.Models;
+using TechMed.Infra.Data.Context;
 
 #nullable disable
 
-namespace TechMed_EFCore.Migrations
+namespace TechMed.Infra.Data.Migrations
 {
     [DbContext(typeof(TechMedContext))]
-    [Migration("20240111202244_AlterRelationExame")]
-    partial class AlterRelationExame
+    partial class TechMedContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,22 +21,22 @@ namespace TechMed_EFCore.Migrations
 
             modelBuilder.Entity("AtendimentoExame", b =>
                 {
-                    b.Property<int>("AtendimentosId")
+                    b.Property<int>("AtendimentosAtendimentoId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ExamesId")
+                    b.Property<int>("ExamesExameId")
                         .HasColumnType("int");
 
-                    b.HasKey("AtendimentosId", "ExamesId");
+                    b.HasKey("AtendimentosAtendimentoId", "ExamesExameId");
 
-                    b.HasIndex("ExamesId");
+                    b.HasIndex("ExamesExameId");
 
                     b.ToTable("AtendimentoExame");
                 });
 
-            modelBuilder.Entity("TechMed_EFCore.Models.Atendimento", b =>
+            modelBuilder.Entity("TechMed.Domain.Entities.Atendimento", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("AtendimentoId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -52,16 +49,16 @@ namespace TechMed_EFCore.Migrations
                     b.Property<int>("PacienteId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("AtendimentoId");
 
                     b.HasIndex("MedicoId");
 
                     b.ToTable("Atendimentos", (string)null);
                 });
 
-            modelBuilder.Entity("TechMed_EFCore.Models.Exame", b =>
+            modelBuilder.Entity("TechMed.Domain.Entities.Exame", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ExameId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -72,14 +69,14 @@ namespace TechMed_EFCore.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.HasKey("Id");
+                    b.HasKey("ExameId");
 
                     b.ToTable("Exames", (string)null);
                 });
 
-            modelBuilder.Entity("TechMed_EFCore.Models.Medico", b =>
+            modelBuilder.Entity("TechMed.Domain.Entities.Medico", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("MedicoId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -101,14 +98,14 @@ namespace TechMed_EFCore.Migrations
                     b.Property<decimal?>("Salario")
                         .HasColumnType("decimal(65,30)");
 
-                    b.HasKey("Id");
+                    b.HasKey("MedicoId");
 
                     b.ToTable("Medicos", (string)null);
                 });
 
-            modelBuilder.Entity("TechMed_EFCore.Models.Paciente", b =>
+            modelBuilder.Entity("TechMed.Domain.Entities.Paciente", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("PacienteId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -126,35 +123,35 @@ namespace TechMed_EFCore.Migrations
                     b.Property<string>("Telefone")
                         .HasColumnType("longtext");
 
-                    b.HasKey("Id");
+                    b.HasKey("PacienteId");
 
                     b.ToTable("Pacientes", (string)null);
                 });
 
             modelBuilder.Entity("AtendimentoExame", b =>
                 {
-                    b.HasOne("TechMed_EFCore.Models.Atendimento", null)
+                    b.HasOne("TechMed.Domain.Entities.Atendimento", null)
                         .WithMany()
-                        .HasForeignKey("AtendimentosId")
+                        .HasForeignKey("AtendimentosAtendimentoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TechMed_EFCore.Models.Exame", null)
+                    b.HasOne("TechMed.Domain.Entities.Exame", null)
                         .WithMany()
-                        .HasForeignKey("ExamesId")
+                        .HasForeignKey("ExamesExameId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("TechMed_EFCore.Models.Atendimento", b =>
+            modelBuilder.Entity("TechMed.Domain.Entities.Atendimento", b =>
                 {
-                    b.HasOne("TechMed_EFCore.Models.Medico", "Medico")
+                    b.HasOne("TechMed.Domain.Entities.Medico", "Medico")
                         .WithMany("Atendimentos")
                         .HasForeignKey("MedicoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TechMed_EFCore.Models.Paciente", "Paciente")
+                    b.HasOne("TechMed.Domain.Entities.Paciente", "Paciente")
                         .WithMany("Atendimentos")
                         .HasForeignKey("MedicoId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -165,12 +162,12 @@ namespace TechMed_EFCore.Migrations
                     b.Navigation("Paciente");
                 });
 
-            modelBuilder.Entity("TechMed_EFCore.Models.Medico", b =>
+            modelBuilder.Entity("TechMed.Domain.Entities.Medico", b =>
                 {
                     b.Navigation("Atendimentos");
                 });
 
-            modelBuilder.Entity("TechMed_EFCore.Models.Paciente", b =>
+            modelBuilder.Entity("TechMed.Domain.Entities.Paciente", b =>
                 {
                     b.Navigation("Atendimentos");
                 });
