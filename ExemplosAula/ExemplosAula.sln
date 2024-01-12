@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechMed_EFCore", "Semana2\T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechMed.Domain", "Semana2\TechMed.Domain\TechMed.Domain.csproj", "{F160317A-647A-4B0E-9136-4A29121B660A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechMed.Infra", "Semana2\TechMed.Infra\TechMed.Infra.csproj", "{C2B66CC8-7BAE-4E92-AA62-C7A84BC05718}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechMed.Infra.Data", "Semana2\TechMed.Infra\TechMed.Infra.Data.csproj", "{C2B66CC8-7BAE-4E92-AA62-C7A84BC05718}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
