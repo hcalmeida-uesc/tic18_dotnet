@@ -11,6 +11,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Semana2", "Semana2", "{AC80
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechMed_EFCore", "Semana2\TechMed_EFCore\TechMed_EFCore.csproj", "{5ED13EB6-D8B2-438A-B66E-F79965CE4236}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechMed.Domain", "Semana2\TechMed.Domain\TechMed.Domain.csproj", "{F160317A-647A-4B0E-9136-4A29121B660A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechMed.Infra", "Semana2\TechMed.Infra\TechMed.Infra.csproj", "{C2B66CC8-7BAE-4E92-AA62-C7A84BC05718}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +29,14 @@ Global
 		{5ED13EB6-D8B2-438A-B66E-F79965CE4236}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5ED13EB6-D8B2-438A-B66E-F79965CE4236}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5ED13EB6-D8B2-438A-B66E-F79965CE4236}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F160317A-647A-4B0E-9136-4A29121B660A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F160317A-647A-4B0E-9136-4A29121B660A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F160317A-647A-4B0E-9136-4A29121B660A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F160317A-647A-4B0E-9136-4A29121B660A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2B66CC8-7BAE-4E92-AA62-C7A84BC05718}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2B66CC8-7BAE-4E92-AA62-C7A84BC05718}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2B66CC8-7BAE-4E92-AA62-C7A84BC05718}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2B66CC8-7BAE-4E92-AA62-C7A84BC05718}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,5 +44,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{1C93234F-95BE-43CF-9F0F-F4619706B23C} = {F008BC1E-D57D-42E0-BA7C-D0DFED714DF3}
 		{5ED13EB6-D8B2-438A-B66E-F79965CE4236} = {AC803B3B-D7EF-4E5B-BC7E-B9CC0A9BA9A6}
+		{F160317A-647A-4B0E-9136-4A29121B660A} = {AC803B3B-D7EF-4E5B-BC7E-B9CC0A9BA9A6}
+		{C2B66CC8-7BAE-4E92-AA62-C7A84BC05718} = {AC803B3B-D7EF-4E5B-BC7E-B9CC0A9BA9A6}
 	EndGlobalSection
 EndGlobal
