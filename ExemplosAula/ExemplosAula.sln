@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Semana1", "Semana1", "{F008BC1E-D57D-42E0-BA7C-D0DFED714DF3}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modulo1", "Modulo1", "{F008BC1E-D57D-42E0-BA7C-D0DFED714DF3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalAPI", "Semana1\MinimalAPI\MinimalAPI.csproj", "{1C93234F-95BE-43CF-9F0F-F4619706B23C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Semana2", "Semana2", "{AC803B3B-D7EF-4E5B-BC7E-B9CC0A9BA9A6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modulo2", "Modulo2", "{AC803B3B-D7EF-4E5B-BC7E-B9CC0A9BA9A6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechMed_EFCore", "Semana2\TechMed_EFCore\TechMed_EFCore.csproj", "{5ED13EB6-D8B2-438A-B66E-F79965CE4236}"
 EndProject
@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechMed.Domain", "Semana2\T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechMed.Infra.Data", "Semana2\TechMed.Infra\TechMed.Infra.Data.csproj", "{C2B66CC8-7BAE-4E92-AA62-C7A84BC05718}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Semana3", "Semana3", "{08A1BAA4-85E6-4B73-8513-4229365829DB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modulo3", "Modulo3", "{08A1BAA4-85E6-4B73-8513-4229365829DB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechMed.WebAPI", "Semana3\TechMed.WebAPI\TechMed.WebAPI.csproj", "{6EFAD0D4-0CD5-48C1-828E-0F5B38C9E8AE}"
 EndProject
