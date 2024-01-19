@@ -1,7 +1,10 @@
+using TechMed.WebAPI.Infra.Data;
+using TechMed.WebAPI.Infra.Data.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddSingleton<IMedicoCollection, MedicosDB>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
