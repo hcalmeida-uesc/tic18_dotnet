@@ -10,7 +10,7 @@ public class MedicoController : ControllerBase
 {
    private readonly IMedicoCollection _medicos;
    public List<Medico> Medicos => _medicos.GetAll().ToList();
-   public MedicoController(IMedicoCollection medicos) => _medicos = medicos;
+   public MedicoController(IDatabaseFake dbFake) => _medicos = dbFake.Collection;
 
    [HttpGet("medicos")]
    public IActionResult Get()
@@ -29,7 +29,8 @@ public class MedicoController : ControllerBase
    public IActionResult Post([FromBody] Medico medico)
    {
       _medicos.Create(medico);
-      return CreatedAtAction(nameof(Get),  medico);
+      return CreatedAtAction(nameof(Get), medico);
+ 
    }
 
    [HttpPut("medico/{id}")]

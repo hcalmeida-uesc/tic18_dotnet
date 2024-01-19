@@ -1,3 +1,4 @@
+
 namespace TechMed.WebAPI.Model;
 
 public class Medico : Pessoa{
