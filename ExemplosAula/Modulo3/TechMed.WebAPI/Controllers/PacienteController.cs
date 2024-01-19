@@ -6,48 +6,48 @@ namespace TechMed.WebAPI.Controllers;
 
 [ApiController]
 [Route("/api/v0.1/")]
-public class MedicoController : ControllerBase
+public class PacienteController : ControllerBase
 {
-   private readonly IMedicoCollection _medicos;
-   public List<Medico> Medicos => _medicos.GetAll().ToList();
-   public MedicoController(IDatabaseFake dbFake) => _medicos = dbFake.MedicosCollection;
+   private readonly IPacienteCollection _pacientes;
+   public List<Paciente> Pacientes => _pacientes.GetAll().ToList();
+   public PacienteController(IDatabaseFake dbFake) => _pacientes = dbFake.PacientesCollection;
 
-   [HttpGet("medicos")]
+   [HttpGet("pacientes")]
    public IActionResult Get()
    {
-      return Ok(Medicos);
+      return Ok(Pacientes);
    }
 
-   [HttpGet("medico/{id}")]
+   [HttpGet("paciente/{id}")]
    public IActionResult GetById(int id)
    {
-      var medico = _medicos.GetById(id);
+      var medico = _pacientes.GetById(id);
       return Ok(medico);
    }
 
-   [HttpPost("medico")]
-   public IActionResult Post([FromBody] Medico medico)
+   [HttpPost("paciente")]
+   public IActionResult Post([FromBody] Paciente paciente)
    {
-      _medicos.Create(medico);
-      return CreatedAtAction(nameof(Get), medico);
+      _pacientes.Create(paciente);
+      return CreatedAtAction(nameof(Get), paciente);
  
    }
 
-   [HttpPut("medico/{id}")]
-   public IActionResult Put(int id, [FromBody] Medico medico)
+   [HttpPut("paciente/{id}")]
+   public IActionResult Put(int id, [FromBody] Paciente paciente)
    {
-      if (_medicos.GetById(id) == null)
+      if (_pacientes.GetById(id) == null)
          return NoContent();
-      _medicos.Update(id, medico);
-      return Ok(_medicos.GetById(id));
+      _pacientes.Update(id, paciente);
+      return Ok(_pacientes.GetById(id));
    }
 
-   [HttpDelete("medico/{id}")]
+   [HttpDelete("paciente/{id}")]
    public IActionResult Delete(int id)
    {
-      if (_medicos.GetById(id) == null)
+      if (_pacientes.GetById(id) == null)
          return NoContent();
-      _medicos.Delete(id);
+      _pacientes.Delete(id);
       return Ok();
    }
 
