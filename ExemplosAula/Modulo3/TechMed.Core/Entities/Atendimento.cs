@@ -1,5 +1,5 @@
-namespace TechMed.WebAPI.Model;
-public class Atendimento
+namespace TechMed.Core.Entities;
+public class Atendimento : BaseEntity
 {
     public int AtendimentoId { get; set; }
     public DateTime DataHora { get; set; }
@@ -7,5 +7,4 @@ public class Atendimento
     public required Medico Medico { get; set; }
     public int PacienteId { get; set; }
     public required Paciente Paciente {get; set;}
-    //public ICollection<Exame>? Exames {get;set;}
 }
