@@ -11,4 +11,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TechMed.Infrastructure\TechMed.Infrastructure.csproj" />
+    <ProjectReference Include="..\TechMed.Core\TechMed.Core.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,6 +1,4 @@
-using TechMed.WebAPI.Model;
-
-namespace TechMed.WebAPI.Infra.Data.Interfaces;
+namespace TechMed.Infrastructure.Persistence.Interfaces;
 public interface IBaseCollection<T>
 {  
    void Create(T obj);

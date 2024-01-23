@@ -1,7 +1,7 @@
-using TechMed.WebAPI.Infra.Data.Interfaces;
-using TechMed.WebAPI.Model;
+using TechMed.Infrastructure.Persistence.Interfaces;
+using TechMed.Core.Entities;
 
-namespace TechMed.WebAPI.Infra.Data;
+namespace TechMed.Infrastructure.Persistence;
 public class AtendimentosDB : IAtendimentoCollection
 {
    private readonly List<Atendimento> _atendimentos = new List<Atendimento>();

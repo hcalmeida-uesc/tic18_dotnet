@@ -1,7 +1,7 @@
-using TechMed.WebAPI.Infra.Data.Interfaces;
-using TechMed.WebAPI.Model;
+using TechMed.Infrastructure.Persistence.Interfaces;
+using TechMed.Core.Entities;
 
-namespace TechMed.WebAPI.Infra.Data;
+namespace TechMed.Infrastructure.Persistence;
 public class PacientesDB : IPacienteCollection
 {
    private readonly List<Paciente> _pacientes = new List<Paciente>();

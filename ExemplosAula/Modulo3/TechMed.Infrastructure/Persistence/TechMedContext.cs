@@ -1,6 +1,7 @@
-using TechMed.WebAPI.Infra.Data.Interfaces;
-using TechMed.WebAPI.Infra.Data;
-public class DatabaseFake : IDatabaseFake
+using TechMed.Infrastructure.Persistence.Interfaces;
+
+namespace TechMed.Infrastructure.Persistence;
+public class TechMedContext : ITechMedContext, IDatabaseFake
 {
    public IMedicoCollection MedicosCollection { get; } = new MedicosDB();
    public IPacienteCollection PacientesCollection { get; } = new PacientesDB();
