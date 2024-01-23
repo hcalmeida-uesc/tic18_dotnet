@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechMed.Core", "Modulo3\Tec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechMed.Infrastructure", "Modulo3\TechMed.Infrastructure\TechMed.Infrastructure.csproj", "{5A9A853C-FAF9-4862-A8C8-DB3C2FC1B2C1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechMed.Application", "Modulo3\TechMed.Application\TechMed.Application.csproj", "{6E285006-8F57-4F1D-A420-BA184CFDBAE8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{5A9A853C-FAF9-4862-A8C8-DB3C2FC1B2C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A9A853C-FAF9-4862-A8C8-DB3C2FC1B2C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A9A853C-FAF9-4862-A8C8-DB3C2FC1B2C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E285006-8F57-4F1D-A420-BA184CFDBAE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E285006-8F57-4F1D-A420-BA184CFDBAE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E285006-8F57-4F1D-A420-BA184CFDBAE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E285006-8F57-4F1D-A420-BA184CFDBAE8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,5 +75,6 @@ Global
 		{6EFAD0D4-0CD5-48C1-828E-0F5B38C9E8AE} = {08A1BAA4-85E6-4B73-8513-4229365829DB}
 		{01F82926-3E3D-4DB0-B6C3-2EBF547B3B35} = {08A1BAA4-85E6-4B73-8513-4229365829DB}
 		{5A9A853C-FAF9-4862-A8C8-DB3C2FC1B2C1} = {08A1BAA4-85E6-4B73-8513-4229365829DB}
+		{6E285006-8F57-4F1D-A420-BA184CFDBAE8} = {08A1BAA4-85E6-4B73-8513-4229365829DB}
 	EndGlobalSection
 EndGlobal

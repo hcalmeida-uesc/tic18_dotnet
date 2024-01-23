@@ -29,6 +29,8 @@ public class PacienteController : ControllerBase
    public IActionResult Post([FromBody] Paciente paciente)
    {
       _pacientes.Create(paciente);
+
+      //service.Create(paciente);
       return CreatedAtAction(nameof(Get), paciente);
  
    }

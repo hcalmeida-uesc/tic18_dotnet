@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using TechMed.Infrastructure.Persistence.Interfaces;
-using TechMed.Core.Entities;
+using TechMed.Application.ViewModels;
+using TechMed.Application.InputModels;
+using TechMed.Application.Services;
 
 namespace TechMed.WebAPI.Controllers;
 
@@ -9,7 +11,7 @@ namespace TechMed.WebAPI.Controllers;
 public class MedicoController : ControllerBase
 {
    private readonly IMedicoCollection _medicos;
-   public List<Medico> Medicos => _medicos.GetAll().ToList();
+   public List<OutMedico> Medicos => MedicoService.Map(_medicos.GetAll().ToList());
    public MedicoController(ITechMedContext context) => _medicos = context.MedicosCollection;
 
    [HttpGet("medicos")]
@@ -50,22 +52,4 @@ public class MedicoController : ControllerBase
       _medicos.Delete(id);
       return Ok();
    }
-
-   // [HttpGet("medico/{id}/atendimentos")]
-   // public IActionResult GetAtendimentos(int id)
-   // {
-   //    var atendimento = Enumerable.Range(1, 5).Select(index => new Atendimento
-   //      {
-   //          AtendimentoId = index,
-   //          DataHora = DateTime.Now,
-   //          MedicoId = id,
-   //          Medico = new Medico
-   //          {
-   //              MedicoId = id,
-   //              Nome = $"Medico {id}"
-   //          }
-   //      })
-   //      .ToArray();
-   //    return Ok(atendimento);
-   // }
 }

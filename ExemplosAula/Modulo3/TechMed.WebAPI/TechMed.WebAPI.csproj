@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TechMed.Infrastructure\TechMed.Infrastructure.csproj" />
-    <ProjectReference Include="..\TechMed.Core\TechMed.Core.csproj" />
+    <ProjectReference Include="..\TechMed.Application\TechMed.Application.csproj" />
   </ItemGroup>
 
 </Project>
