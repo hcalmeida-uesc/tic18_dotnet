@@ -6,51 +6,60 @@ using TechMed.Core.Entities;
 
 namespace TechMed.Application.Services;
 public class MedicoService : IMedicoService
-{ 
-   private readonly ITechMedContext _context;
-   public MedicoService(ITechMedContext context){
-      _context = context;
-   }
-    public void Create(NewMedico medico)
-    {
-        throw new NotImplementedException();
-    }
+{
+  private readonly ITechMedContext _context;
+  public MedicoService(ITechMedContext context)
+  {
+    _context = context;
+  }
 
-    public void Delete(int id)
-    {
-        throw new NotImplementedException();
-    }
+  public int Create(NewMedicoInputModel medico)
+  {
+    return _context.MedicosCollection.Create(new Medico{
+      Nome = medico.Nome
+      });
 
-    public List<OutMedico> GetAll()
-    {
-      return Map(_context.MedicosCollection.GetAll().ToList());
-    }
+  }
 
-    public OutMedico GetByCrm(string crm)
-    {
-        throw new NotImplementedException();
-    }
+  public void Delete(int id)
+  {
+    _context.MedicosCollection.Delete(id);
+  }
 
-    public OutMedico GetById(int id)
-    {
-        throw new NotImplementedException();
-    }
+  public List<MedicoViewModel> GetAll()
+  {
+    var medicos = _context.MedicosCollection.GetAll().Select(m => new MedicoViewModel{
+      MedicoId = m.MedicoId,
+      Nome = m.Nome
+    }).ToList();
 
-    public void Update(int id, NewMedico medico)
-    {
-        throw new NotImplementedException();
-    }
-    public static OutMedico Map(Medico medico)
-    {
-      return new OutMedico
-      {
-        MedicoId = medico.MedicoId,
-        Nome = medico.Nome
-      };
-    }
+    return medicos;
+
+  }
+
+  public MedicoViewModel GetByCrm(string crm)
+  {
+    throw new NotImplementedException();
+  }
+
+  public MedicoViewModel GetById(int id)
+  {
+    var medico = _context.MedicosCollection.GetById(id);
     
-    public static List<OutMedico> Map(List<Medico> medicos)
-    {
-      return medicos.Select(medico => Map(medico)).ToList();
-    }
+    if(medico is null)
+      return new MedicoViewModel();
+
+    var MedicoViewModel = new MedicoViewModel{
+      MedicoId = medico.MedicoId,
+      Nome = medico.Nome
+    };
+    return MedicoViewModel;
+  }
+
+  public void Update(int id, NewMedicoInputModel medico)
+  {
+    _context.MedicosCollection.Update(id, new Medico{
+      Nome = medico.Nome
+    });
+  }
 }

@@ -6,12 +6,13 @@ public class MedicosDB : IMedicoCollection
 {
    private readonly List<Medico> _medicos = new List<Medico>();
    private int _id = 0;   
-   public void Create(Medico medico)
+   public int Create(Medico medico)
    {
       if(_medicos.Count > 0)
          _id = _medicos.Max(m => m.MedicoId);
       medico.MedicoId = ++_id;
       _medicos.Add(medico);
+      return medico.MedicoId;
    }
    public void Delete(int id)
    {

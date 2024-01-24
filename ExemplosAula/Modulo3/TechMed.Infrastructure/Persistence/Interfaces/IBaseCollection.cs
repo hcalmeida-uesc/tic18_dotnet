@@ -1,7 +1,7 @@
 namespace TechMed.Infrastructure.Persistence.Interfaces;
 public interface IBaseCollection<T>
 {  
-   void Create(T obj);
+   int Create(T obj);
    ICollection<T> GetAll();
    T? GetById(int id);
    void Update(int id, T obj);

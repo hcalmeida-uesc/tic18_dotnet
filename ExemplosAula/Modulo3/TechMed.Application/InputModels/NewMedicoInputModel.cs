@@ -1,8 +1,7 @@
-namespace TechMed.Application.ViewModels
+namespace TechMed.Application.InputModels
 {
-    public class OutMedico
+    public class NewMedicoInputModel
     {
-        public int MedicoId { get; set; }
         public string Nome { get; set; }
         public string Crm { get; set; }
         public string Especialidade { get; set; }

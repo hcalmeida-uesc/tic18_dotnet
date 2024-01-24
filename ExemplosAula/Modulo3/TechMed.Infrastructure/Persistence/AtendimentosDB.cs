@@ -6,12 +6,13 @@ public class AtendimentosDB : IAtendimentoCollection
 {
    private readonly List<Atendimento> _atendimentos = new List<Atendimento>();
    private int _id = 0;   
-   public void Create(Atendimento atendimento)
+   public int Create(Atendimento atendimento)
    {
       if(_atendimentos.Count > 0)
          _id = _atendimentos.Max(m => m.PacienteId);
       atendimento.PacienteId = ++_id;
       _atendimentos.Add(atendimento);
+      return atendimento.PacienteId;
    }
    public void Delete(int id)
    {
