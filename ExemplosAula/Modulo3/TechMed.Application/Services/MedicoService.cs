@@ -37,17 +37,17 @@ public class MedicoService : IMedicoService
 
   }
 
-  public MedicoViewModel GetByCrm(string crm)
+  public MedicoViewModel? GetByCrm(string crm)
   {
     throw new NotImplementedException();
   }
 
-  public MedicoViewModel GetById(int id)
+  public MedicoViewModel? GetById(int id)
   {
     var medico = _context.MedicosCollection.GetById(id);
     
     if(medico is null)
-      return new MedicoViewModel();
+      return null;
 
     var MedicoViewModel = new MedicoViewModel{
       MedicoId = medico.MedicoId,
