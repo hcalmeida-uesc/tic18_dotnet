@@ -36,6 +36,14 @@ public class MedicoController : ControllerBase
  
    }
 
+   [HttpPost("medico/{id}/atendimento")]
+   public IActionResult Post(int id, [FromBody] NewAtendimentoInputModel atendimento)
+   {
+      _medicoService.CreateAtendimento(id,atendimento);
+      return CreatedAtAction(nameof(Get), atendimento);
+ 
+   }
+
    [HttpPut("medico/{id}")]
    public IActionResult Put(int id, [FromBody] NewMedicoInputModel medico)
    {

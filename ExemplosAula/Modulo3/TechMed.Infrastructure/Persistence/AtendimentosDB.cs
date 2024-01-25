@@ -9,10 +9,10 @@ public class AtendimentosDB : IAtendimentoCollection
    public int Create(Atendimento atendimento)
    {
       if(_atendimentos.Count > 0)
-         _id = _atendimentos.Max(m => m.PacienteId);
-      atendimento.PacienteId = ++_id;
+         _id = _atendimentos.Max(m => m.AtendimentoId);
+      atendimento.AtendimentoId = ++_id;
       _atendimentos.Add(atendimento);
-      return atendimento.PacienteId;
+      return atendimento.AtendimentoId;
    }
    public void Delete(int id)
    {
