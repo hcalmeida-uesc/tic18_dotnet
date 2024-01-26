@@ -5,7 +5,11 @@ namespace TechMed.Infrastructure.Persistence;
 public class MedicosDB : IMedicoCollection
 {
    private readonly List<Medico> _medicos = new List<Medico>();
-   private int _id = 0;   
+   private int _id = 2;
+   public MedicosDB(){
+      _medicos.Add(new Medico{MedicoId = 1, Nome = "Dr. House"});
+      _medicos.Add(new Medico{MedicoId = 2, Nome = "Dr. Dexter"});
+   }
    public int Create(Medico medico)
    {
       if(_medicos.Count > 0)

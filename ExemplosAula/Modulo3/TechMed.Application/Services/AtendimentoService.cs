@@ -6,16 +6,19 @@ using TechMed.Infrastructure.Persistence.Interfaces;
 
 namespace TechMed.Application.Services;
 public class AtendimentoService : BaseService, IAtendimentoService
-{  
+{
    private readonly IMedicoService _medicoService;
-   public AtendimentoService(ITechMedContext context, IMedicoService medico) : base(context)
+   private readonly IPacienteService _pacienteService;
+   public AtendimentoService(ITechMedContext context, IMedicoService medicoService, IPacienteService pacienteService) : base(context)
    {
-      _medicoService = medico;
+      _medicoService = medicoService;
+      _pacienteService = pacienteService;
    }
-   public int Create(NewAtendimentoInputModel atendimento){
+   public int Create(NewAtendimentoInputModel atendimento)
+   {
       return _medicoService.CreateAtendimento(atendimento.MedicoId, atendimento);
    }
-    public List<AtendimentoViewModel> GetAll()
+   public List<AtendimentoViewModel> GetAll()
    {
       return _context.AtendimentosCollection.GetAll().Select(a => new AtendimentoViewModel
       {
@@ -34,13 +37,33 @@ public class AtendimentoService : BaseService, IAtendimentoService
       }).ToList();
    }
 
-   public List<AtendimentoViewModel> GetByMedicoId(int medicoId)
+   public AtendimentoViewModel? GetById(int id)
    {
-      throw new NotImplementedException();
-   }
+      var atendimentoDB = _context.AtendimentosCollection.GetById(id);
+      if (atendimentoDB is null)
+         throw new AtendimentoNotFoundException();
+      
+      var medicoVM = _medicoService.GetById(atendimentoDB.Medico.MedicoId);
+      var pacienteVM = _pacienteService.GetById(atendimentoDB.Paciente.PacienteId);
+      
+      if (medicoVM is null || pacienteVM is null)
+         return null;
 
-   public List<AtendimentoViewModel> GetByPacienteId(int pacienteId)
-   {
-      throw new NotImplementedException();
+      return new AtendimentoViewModel{
+         AtendimentoId = atendimentoDB.AtendimentoId,
+         DataHora = atendimentoDB.DataHora,
+         Medico = medicoVM,
+         Paciente = pacienteVM
+      };
+      
    }
+    public List<AtendimentoViewModel> GetByMedicoId(int medicoId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<AtendimentoViewModel> GetByPacienteId(int pacienteId)
+    {
+        throw new NotImplementedException();
+    }
 }

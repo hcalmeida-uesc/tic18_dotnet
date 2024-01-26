@@ -16,7 +16,7 @@ public class AtendimentosDB : IAtendimentoCollection
    }
    public void Delete(int id)
    {
-      _atendimentos.RemoveAll(m => m.PacienteId == id);
+      _atendimentos.RemoveAll(m => m.AtendimentoId == id);
    }
    public ICollection<Atendimento> GetAll()
    {
@@ -28,7 +28,7 @@ public class AtendimentosDB : IAtendimentoCollection
    }
    public void Update(int id, Atendimento atendimento)
    {
-      var atendimentoDB = _atendimentos.FirstOrDefault(m => m.PacienteId == id);
+      var atendimentoDB = _atendimentos.FirstOrDefault(m => m.AtendimentoId == id);
       if(atendimentoDB is not null)
       {
          atendimentoDB.DataHora = atendimento.DataHora;
