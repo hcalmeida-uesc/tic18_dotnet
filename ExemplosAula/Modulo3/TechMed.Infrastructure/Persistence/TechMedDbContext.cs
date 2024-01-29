@@ -18,40 +18,7 @@ public class TechMedDbContext : DbContext
    {
       base.OnModelCreating(modelBuilder);
 
-      //configurações de mapeamento da entidade Medico
-      modelBuilder.Entity<Medico>()
-         .ToTable("Medicos")
-         .HasKey(m => m.MedicoId);
-
-      //configurações de mapeamento da entidade Paciente
-      modelBuilder.Entity<Paciente>()
-         .ToTable("Pacientes")
-         .HasKey(m => m.PacienteId);
-
-      //configurações de mapeamento da entidade Atendimento
-      modelBuilder.Entity<Atendimento>()
-         .ToTable("Atendimentos")
-         .HasKey(m => m.AtendimentoId);
-
-      modelBuilder.Entity<Atendimento>()
-         .HasOne(m => m.Medico)
-         .WithMany(m => m.Atendimentos)
-         .HasForeignKey(m => m.MedicoId);
-
-      modelBuilder.Entity<Atendimento>()
-         .HasOne(m => m.Paciente)
-         .WithMany(m => m.Atendimentos)
-         .HasForeignKey(m => m.PacienteId);
-
-      //configurações de mapeamento da entidade Exame
-      modelBuilder.Entity<Exame>()
-         .ToTable("Exames")
-         .HasKey(m => m.ExameId);
-
-      modelBuilder.Entity<Exame>()
-         .HasOne(m => m.Atendimento)
-         .WithMany(m => m.Exames)
-         .HasForeignKey(m => m.AtendimentoId);
+      modelBuilder.ApplyConfigurationsFromAssembly(typeof(TechMedDbContext).Assembly);
    }
 
    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
