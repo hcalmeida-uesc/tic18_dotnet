@@ -7,4 +7,5 @@ public class Atendimento : BaseEntity
     public required Medico Medico { get; set; }
     public int PacienteId { get; set; }
     public required Paciente Paciente {get; set;}
+    public ICollection<Exame>? Exames { get; set; }
 }
