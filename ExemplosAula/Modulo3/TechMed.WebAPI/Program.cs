@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using TechMed.Application.Services;
 using TechMed.Application.Services.Interfaces;
 using TechMed.Infrastructure.Persistence;
@@ -12,7 +13,13 @@ builder.Services.AddScoped<IPacienteService, PacienteService>();
 builder.Services.AddScoped<IAtendimentoService, AtendimentoService>();
 builder.Services.AddScoped<IExameService, ExameService>();
 
-builder.Services.AddDbContext<TechMedDbContext>();
+builder.Services.AddDbContext<TechMedDbContext>(options => {
+    var connectionString = builder.Configuration.GetConnectionString("TechMedDb");
+
+    var serverVersion = ServerVersion.AutoDetect(connectionString);
+
+      options.UseMySql(connectionString, serverVersion);
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

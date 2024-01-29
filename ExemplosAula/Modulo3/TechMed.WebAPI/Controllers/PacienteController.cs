@@ -22,8 +22,13 @@ public class PacienteController : ControllerBase
    [HttpGet("paciente/{id}")]
    public IActionResult GetById(int id)
    {
-      var paciente = _pacienteService.GetById(id);
-      return Ok(paciente);
+      try{
+         var paciente = _pacienteService.GetById(id);
+         return Ok(paciente);
+      }
+      catch(Exception ex){
+         return BadRequest(ex.Message);
+      }
    }
 
    [HttpPost("paciente")]

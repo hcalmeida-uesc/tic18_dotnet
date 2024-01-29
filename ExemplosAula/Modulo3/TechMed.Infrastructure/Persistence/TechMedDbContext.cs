@@ -11,7 +11,7 @@ public class TechMedDbContext : DbContext
 
    public TechMedDbContext(DbContextOptions<TechMedDbContext> options) : base(options)
    {
-      Database.EnsureCreated();
+      //Database.EnsureCreated();
    }
 
    protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -19,17 +19,5 @@ public class TechMedDbContext : DbContext
       base.OnModelCreating(modelBuilder);
 
       modelBuilder.ApplyConfigurationsFromAssembly(typeof(TechMedDbContext).Assembly);
-   }
-
-   protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-   {
-      base.OnConfiguring(optionsBuilder);
-
-      var connectionString = "server=localhost;user=techmed;password=123456;database=techmed";
-
-      var serverVersion = ServerVersion.AutoDetect(connectionString);
-
-      optionsBuilder.UseMySql(connectionString, serverVersion);
-
    }
 }
