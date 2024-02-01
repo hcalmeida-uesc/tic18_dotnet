@@ -25,6 +25,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechMed.Infrastructure", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechMed.Application", "Modulo3\TechMed.Application\TechMed.Application.csproj", "{6E285006-8F57-4F1D-A420-BA184CFDBAE8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modulo4", "Modulo4", "{05BE09B2-F357-4B3E-87FD-16E59837FB99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalAPi_Example", "Modulo4\MinimalAPi_Example\MinimalAPi_Example.csproj", "{66E39AFD-36B3-48CE-A165-0F1D5D7B642D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,10 @@ Global
 		{6E285006-8F57-4F1D-A420-BA184CFDBAE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E285006-8F57-4F1D-A420-BA184CFDBAE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E285006-8F57-4F1D-A420-BA184CFDBAE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66E39AFD-36B3-48CE-A165-0F1D5D7B642D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66E39AFD-36B3-48CE-A165-0F1D5D7B642D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66E39AFD-36B3-48CE-A165-0F1D5D7B642D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66E39AFD-36B3-48CE-A165-0F1D5D7B642D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,5 +84,6 @@ Global
 		{01F82926-3E3D-4DB0-B6C3-2EBF547B3B35} = {08A1BAA4-85E6-4B73-8513-4229365829DB}
 		{5A9A853C-FAF9-4862-A8C8-DB3C2FC1B2C1} = {08A1BAA4-85E6-4B73-8513-4229365829DB}
 		{6E285006-8F57-4F1D-A420-BA184CFDBAE8} = {08A1BAA4-85E6-4B73-8513-4229365829DB}
+		{66E39AFD-36B3-48CE-A165-0F1D5D7B642D} = {05BE09B2-F357-4B3E-87FD-16E59837FB99}
 	EndGlobalSection
 EndGlobal
