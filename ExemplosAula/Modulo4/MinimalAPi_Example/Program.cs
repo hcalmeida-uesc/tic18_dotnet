@@ -1,10 +1,10 @@
 using Modulo4.LinhaDeMontagem;
 
 var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
 
 builder.Services.AddScoped<LinhaDeMontagemDescricao>();
 
+var app = builder.Build();
 //app.UseHttpsRedirection();
 
 app.UseMiddleware<AddChassiMiddleware>();

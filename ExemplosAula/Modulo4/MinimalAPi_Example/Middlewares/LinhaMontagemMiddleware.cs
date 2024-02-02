@@ -64,6 +64,8 @@ public class AddInternoMiddleware
     public async Task Invoke(HttpContext context, LinhaDeMontagemDescricao descricao)
     {
         await context.Response.WriteAsync("Acabarmento interno adicionado\n");
+        if (!context.Response.HasStarted)
+            await _next(context);
     }
 }
 
