@@ -27,10 +27,6 @@ public class AddMotorMiddleware
     public async Task Invoke(HttpContext context, LinhaDeMontagemDescricao descricao)
     {
         descricao.AdicionarEtapa("Motor", "Motor adicionado");
-
-        var erro = 10;
-        erro = erro/0;
-
         await _next(context);
     }
 }
@@ -76,8 +72,7 @@ public class AddInternoMiddleware
     public async Task Invoke(HttpContext context, LinhaDeMontagemDescricao descricao)
     {
         descricao.AdicionarEtapa("Acabamento Interno", $"Acabamento Interno adicionado na cor {descricao.Cor}");
-        if (!context.Response.HasStarted)
-            await _next(context);
+        await _next(context);
     }
 }
 
