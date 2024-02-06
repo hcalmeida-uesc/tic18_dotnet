@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using TechMed.Application.Auth;
 using TechMed.Application.Services;
 using TechMed.Application.Services.Interfaces;
 using TechMed.Infrastructure.Persistence;
@@ -33,6 +34,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.UseMiddleware<SimpleAuthHandler>();
 }
 
 app.UseHttpsRedirection();
