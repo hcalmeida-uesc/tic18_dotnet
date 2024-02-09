@@ -1,4 +1,6 @@
 using System.Text;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -6,9 +8,11 @@ using Microsoft.OpenApi.Models;
 using TechMed.Application.Auth;
 using TechMed.Application.Services;
 using TechMed.Application.Services.Interfaces;
+using TechMed.Application.Validators;
 using TechMed.Infrastructure.Auth;
 using TechMed.Infrastructure.Persistence;
 using TechMed.Infrastructure.Persistence.Interfaces;
+using TechMed.WebAPI.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,7 +33,14 @@ builder.Services.AddDbContext<TechMedDbContext>(options => {
       options.UseMySql(connectionString, serverVersion);
 });
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options => {
+    options.Filters.Add<ValidationFilter>();
+});
+// Add FluentValidation
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddFluentValidationClientsideAdapters();
+builder.Services.AddValidatorsFromAssemblyContaining<CreatePacienteValidator>();
+// End FluentValidation
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 //builder.Services.AddSwaggerGen();
