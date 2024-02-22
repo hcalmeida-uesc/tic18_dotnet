@@ -17,7 +17,7 @@ namespace MvcMovie.Data.Security
 
       public static bool VerifyPassword(string password, string hash)
       {
-         throw new NotImplementedException();
+         return HashPassword(password) == hash;
       }
    }
 }
