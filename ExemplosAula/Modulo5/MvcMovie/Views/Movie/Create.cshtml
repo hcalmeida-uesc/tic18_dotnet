@@ -37,6 +37,10 @@
                 <select asp-for="StudioId" class ="form-control" asp-items="ViewBag.StudioId"></select>
             </div>
             <div class="form-group">
+                <label asp-for="Artists" class="control-label">Artists</label>
+                <select asp-for="Artists" multiple class ="form-control" asp-items="ViewBag.ArtistId"></select>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>

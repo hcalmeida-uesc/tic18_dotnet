@@ -13,4 +13,5 @@ public class Movie
     public decimal Price { get; set; }
     public required int StudioId { get; set; }
     public virtual Studio? Studio { get; set; }
+    public virtual ICollection<Artist>? Artists { get; set; }
 }
